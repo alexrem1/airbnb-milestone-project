@@ -182,7 +182,11 @@ def update_listing(property_id):
     )
     return redirect(url_for("user_listing"))
 
-
+@app.route("/delete_listing/<property_id>")
+@login_required
+def delete_listing(property_id):
+    mongo.db.property.remove({"_id": ObjectId(property_id)})
+    return redirect(url_for("user_listing"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
