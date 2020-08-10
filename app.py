@@ -139,5 +139,16 @@ def insert_review(property_id):
     reviews.insert_one(review)
     return redirect(url_for("view_listing", property_id=property_id))
 
+@app.route("/edit_listing/<property_id>")
+@login_required
+def edit_listing(property_id):
+    the_property = mongo.db.property.find_one({"_id": ObjectId(property_id)})
+    return render_template(
+        "editlisting.html",
+        property=the_property,
+        amenities=mongo.db.amenities.find(),
+        bedsize=mongo.db.bedsize.find(),
+    )
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
