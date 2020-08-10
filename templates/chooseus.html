@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<div class="parallax">
+	<img style="width: 100%; position: fixed;" src={{ url_for('static',
+  filename='propertyphotos/cover2.jpg') }}>
+</div>
+	<div class="container">
+		<div class="row">
+			<br />
+			<br />
+			<br />
+			<br />
+			<div class="col s12 center-align">
+				<a class="waves-effect waves-light btn" onclick="$('.tap-target').tapTarget('open')">CHOOSE US
+					BECAUSE...</a>
+			</div>
+		</div>
+		<br />
+		<div class="tap-target" data-activates="menu">
+			<div class="tap-target-content">
+				<p class="center-align">
+					The biggest mistake Airbnb hosts make is limiting themselves and solely
+					relying on the Airbnb platform. Airbnb fees can take their toll – those
+					3% (+VAT) host service fees start to add up, and there’s no knowing if
+					these fees will increase as your property grows even bigger.
+					<br />
+        Why stick to only one platform when you can have your listing on my
+        website for absolutely free!
+      </p>
+			</div>
+		</div>
+		<div class="tap-target" data-activates="menu">
+			<div class="tap-target-content">
+				<p class="center-align">
+					We provide a review section that serves to bolster your airbnb
+					recommendations and bookings you will recieve on other booking sites
+					hosting your listing. Hosting your airbnb on our site serves to add even
+					more traffic to the existing traffic.
+					<br />
+        It goes without saying: the more and better reviews your Airbnb listings
+        have, the more likely you are to attract guests!
+      </p>
+			</div>
+		</div>
+		<div class="tap-target" data-activates="menu">
+			<div class="tap-target-content">
+				<p class="center-align">
+					Our company offers a template, once registered, for quick ease of use.
+					The creative detailing of your airbnb will come down to you. But if you
+					are interested in hosting us you're already being creative!
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center-align">
+				<a id="menu" class="waves-effect waves-light btn btn-floating"><i class="material-icons">menu</i></a>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
