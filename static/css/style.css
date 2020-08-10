@@ -1,0 +1,14 @@
+.home-icon{
+    padding-top: 1.1em;
+}
+
+nav {
+    background-color: burlywood;
+}
+
+.logo{
+    width: 75px;
+    height: 75px;
+    margin-left: 15px;
+    margin-top: -5px;
+}
