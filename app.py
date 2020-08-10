@@ -130,5 +130,14 @@ def view_listing(property_id):
         "viewlisting.html", property=one_property, reviews=reviews, user=one_user
     )
 
+@app.route("/insert_review/<property_id>", methods=["POST"])
+def insert_review(property_id):
+    one_property = mongo.db.property.find({"_id": ObjectId(property_id)})
+    reviews = mongo.db.reviews
+    review = request.form.to_dict()
+    review["property"] = ObjectId(property_id)
+    reviews.insert_one(review)
+    return redirect(url_for("view_listing", property_id=property_id))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
