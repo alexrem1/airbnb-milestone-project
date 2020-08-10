@@ -10,10 +10,16 @@ app.secret_key = os.getenv("SECRET")
 
 mongo = PyMongo(app)
 
+
+
 @app.route("/")
 @app.route("/choose_us")
 def choose_us():
      return render_template("chooseus.html")
+
+@app.route("/get_property")
+def get_property():
+    return render_template("properties.html", property=mongo.db.property.find())
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
