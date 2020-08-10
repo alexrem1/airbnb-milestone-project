@@ -11,46 +11,44 @@
 
 <body>
 	<header>
-	<div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper">
-            <a href="{{url_for('get_property')}}"
-              ><img
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="{{url_for('get_property')}}"><img
                 src="{{ url_for('static', filename='logo/logo.png') }}"
                 class="logo"
             /></a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"
-              ><i class="material-icons">menu</i></a
-            >
-            <ul class="right hide-on-med-and-down">
-              <li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
-              <li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
-              {%if session['username']%}
-              <li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
-              {% endif %} {% if session['username'] %}
-              <li><a href="{{url_for('user_listing')}}">My Listings</a></li>
-              {% else %} {% endif %} {% if session['username'] %}
-              <li><a href="{{url_for('logout')}}">Logout</a></li>
-              {% else %}
-              <li><a href="{{url_for('index')}}">Login</a></li>
-              {% endif %}
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
-        <li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
-        {%if session['username']%}
-        <li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
-        {% endif %} {% if session['username'] %}
-        <li><a href="{{url_for('user_listing')}}">My Listings</a></li>
-        {% else %} {% endif %} {% if session['username'] %}
-        <li><a href="{{url_for('logout')}}">Logout</a></li>
-        {% else %}
-        <li><a href="{{url_for('index')}}">Login</a></li>
-        {% endif %}
-      </ul>
+						<a href="#" data-activates="mobile-demo"
+							class="button-collapse"><i class="material-icons">menu</i></a>
+						<ul class="right hide-on-med-and-down">
+							<li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
+							<li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
+							{%if session['username']%}
+							<li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
+							{% endif %} {% if session['username'] %}
+							<li><a href="{{url_for('user_listing')}}">My Listings</a></li>
+							{% else %} {% endif %} {% if session['username'] %}
+							<li><a href="{{url_for('logout')}}">Logout</a></li>
+							{% else %}
+							<li><a href="{{url_for('index')}}">Login</a></li>
+							{% endif %}
+						</ul>
+				</div>
+			</nav>
+		</div>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
+			<li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
+			{%if session['username']%}
+			<li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
+			{% endif %} {% if session['username'] %}
+			<li><a href="{{url_for('user_listing')}}">My Listings</a></li>
+			{% else %} {% endif %} {% if session['username'] %}
+			<li><a href="{{url_for('logout')}}">Logout</a></li>
+			{% else %}
+			<li><a href="{{url_for('index')}}">Login</a></li>
+			{% endif %}
+		</ul>
 	</header>
 	{%block content%} {% endblock %}
 
