@@ -1,0 +1,118 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+	<h4>Add AirBnB Listing</h4> <br><br>
+	<div class="row">
+		<form action="{{url_for('insert_listing')}}" method="POST" class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="name" name="name" type="text" class="validate" required>
+					<label for="icon_prefix">AirBnB Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="typeandhost" name="typeandhost" type="text" class="validate" required>
+					<label for="icon_telephone">AirBnB type, Hosted by</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" id="capacity" name="capacity" class="validate" placeholder="Guests - bedrooms - beds - showers" required>
+					<label for="icon_telephone">Capacity</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="summary" name="summary" class="materialize-textarea" placeholder="Describe your AirBnB" required></textarea>
+					<label for="icon_telephone">AirBnB Summary</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s4">
+					<input id="pricepernight" name="pricepernight" type="text" class="validate" required>
+					<label for="icon_telephone">Price per night</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="cleaningfee" name="cleaningfee" type="text" class="validate"required>
+					<label for="icon_telephone">Cleaning fee</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="servicefee" name="servicefee" type="text" class="validate" required>
+					<label for="icon_telephone">Service fee</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s4">
+					<select multiple id="bedsize" name="bedsize">
+      <option value="" disabled selected aria-required="true">Choose bed size</option>
+      {% for bed in bedsize %}
+      <option value="{{bed.label}}">{{bed.label}}</option>
+      {% endfor %}
+    </select>
+					<label>Bed Size</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="minnights" name="minnights" type="text" class="validate" required>
+					<label for="icon_telephone">Min nights</label>
+				</div>
+				<div class="input-field col s4">
+					<input id="maxnights" name="maxnights" type="text" class="validate" required>
+					<label for="icon_telephone">Max nights</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" id="rules" name="rules" class="validate" required>
+					<label for="icon_telephone">List your house rules</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<select multiple id="amenities" name="amenities">
+      <option value="" disabled selected aria-required="true">Choose amenity</option>
+      {% for amn in amenities %}
+      <option value="{{amn.label}}">{{amn.label}}</option>
+      {% endfor %}
+    </select>
+					<label>AirBnB Amenities</label>
+				</div>
+				<div class="input-field col s6">
+					<input type="text" id="cancellation" name="cancellation" class="validate" placeholder="Please state the exact requirments for your policy" required>
+					<label for="icon_telephone">Cancellation Policy</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" id="things" name="things" class="validate" required>
+					<label for="icon_telephone">Important details potential clients should know about your property, location etc</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12" id="matfix">
+					<input id="datevisited" name="datevisited" type="text" class="pickadate">
+					<label for="icon_telephone">When did you recieve AirBnB verification status?</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input type="text" id="author" name="author" class="validate" placeholder="Your username" value="{{ session['username'] }}">
+					<label for="icon_telephone">Author </label>
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn waves-effect waves-light" type="submit" name="action">Add Listing
+        <i class="material-icons right">send</i>
+    </button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

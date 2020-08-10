@@ -79,7 +79,56 @@ def logout():
     session.pop("username")
     return redirect(url_for("choose_us"))
 
+@app.route("/add_listing")
+@login_required
+def add_listing():
+    return render_template(
+        "addlisting.html",
+        amenities=mongo.db.amenities.find(),
+        bedsize=mongo.db.bedsize.find(),
+        property=mongo.db.property.find()
+    )
 
+@app.route("/insert_listing", methods=["POST", "GET"])
+@login_required
+def insert_listing():
+
+    username = session["username"]
+    user = mongo.db.user.find_one({"username": username})
+
+    property = mongo.db.property
+    property.insert_one(
+        {
+            "name": request.form.get("name"),
+            "typeandhost": request.form.get("typeandhost"),
+            "capacity": request.form.get("capacity"),
+            "summary": request.form.get("summary"),
+            "pricepernight": request.form.get("pricepernight"),
+            "cleaningfee": request.form.get("cleaningfee"),
+            "servicefee": request.form.get("servicefee"),
+            "bedsize": request.form.getlist("bedsize"),
+            "minnights": request.form.get("minnights"),
+            "maxnights": request.form.get("maxnights"),
+            "rules": request.form.get("rules"),
+            "amenities": request.form.getlist("amenities"),
+            "cancellation": request.form.get("cancellation"),
+            "datevisited": request.form.get("datevisited"),
+            "author": request.form.get("author"),
+            "things": request.form.get("things"),             
+            "user": user["_id"]
+        }
+    )
+    return redirect(url_for("get_property"))
+
+
+@app.route("/view_listing/<property_id>")
+def view_listing(property_id):
+    one_property = mongo.db.property.find({"_id": ObjectId(property_id)})
+    reviews = mongo.db.reviews.find({"property": ObjectId(property_id)})
+    one_user = mongo.db.reviews.find()
+    return render_template(
+        "viewlisting.html", property=one_property, reviews=reviews, user=one_user
+    )
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)

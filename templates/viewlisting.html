@@ -1,0 +1,142 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+	{% for airbnb in property %}
+	<u>
+		<h4 class="center-align">{{airbnb.name}}</h4>
+	</u>
+	<br>
+	<div class="carousel" style="height:300px">
+		<a class="carousel-item" href="#one!"><img src={{ url_for('static', filename='propertyphotos/1.jpg') }} ></a>
+			<a class="carousel-item"
+				href="#one!"><img src={{ url_for('static', filename='propertyphotos/2.jpg') }} ></a>
+				<a class="carousel-item"
+					href="#one!"><img src={{ url_for('static', filename='propertyphotos/3.jpg') }} ></a>
+					<a class="carousel-item"
+						href="#one!"><img src={{ url_for('static', filename='propertyphotos/4.jpg') }} ></a>
+						<a class="carousel-item"
+							href="#one!"><img src={{ url_for('static', filename='propertyphotos/5.jpg') }} ></a>
+	</div>
+	<div class="row">
+		<div class="col s12 m12">
+			<div class="card white">
+				<div class="card-content black-text">
+					{{airbnb.typeandhost}} <br /><br />
+     Capacity: {{airbnb.capacity}} <br /><br />
+      {{airbnb.summary}} <br /><br />
+      Bed size(s): {{airbnb.bedsize|join(', ')}} <br><br>
+      Minimum stay {{airbnb.minnights}} - {{airbnb.maxnights}} Maximum stay <br><br>
+      Amenities: {{airbnb.amenities|join(', ')}} <br><br>
+  </div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<div class="divider"></div>
+		<div class="divider"></div>
+
+		<div>
+			<em><h4 class="center-align">Price per night {{airbnb.pricepernight}} - Cleaning fees {{airbnb.cleaningfee}} - Service fees {{airbnb.servicefee}}</h4></em>
+		</div>
+
+		<div class="divider"></div>
+		<div class="divider"></div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col s6 m6">
+				<div class="card white">
+					<div class="card-content black-text">
+						<em><h4 class="center-align">House Rules</h4></em>
+						<br>
+						<p>{{airbnb.rules}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col s6 m6">
+				<div class="card white">
+					<div class="card-content black-text">
+						<em><h4 class="center-align">Cancellation Policy</h4></em>
+						<br>
+						<p>{{airbnb.cancellation}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card white">
+					<div class="card-content black-text">
+						<em><h4>Things you should know</h4></em>
+						<br>
+						<p>{{airbnb.things}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="input-field col s12 offset-s3">
+				<h5>Author: {{airbnb.author}} <br> Verified AirBnB user since {{airbnb.datevisited}}</h5>
+			</div>
+		</div>
+		<br>
+		<div class="divider"></div>
+		<div class="divider"></div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col s12">
+				<div class="row">
+					<div class="col s12 m12">
+						<div class="card white">
+							<div class="card-content black-text">
+								<u>
+									<h3 class="center-align">Reviews</h3>
+								</u>
+								<br>
+								<br>
+{% for r in reviews %}
+								<p class="center-align">{{r.name}}: {{r.review}}</p>
+								<br>
+								<br>
+{% endfor %}
+            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br><br>
+			<div class="divider"></div>
+			<div class="divider"></div>
+			<br>
+			<br>
+			<br>
+			<div class="row">
+				<form  method="POST" class="col s12">
+					<h6>If you have time, please leave a review.</h6>
+					<br>
+					<div class="row">
+						<div class="input-field col s3">
+							<input type="text" id="name" name="name" class="validate" placeholder="What is your name?" required>
+        </div>
+							<div class="input-field col s10">
+								<textarea id="review" name="review" class="materialize-textarea" placeholder="Write your review here. Please include everything your hosts done to make you feel at home and/or vice versa" required></textarea>
+							</div>
+							<div class="col s2">
+								<button class="btn waves-effect waves-light" style="margin-top: 55px;" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
+							</div>
+						</div>
+				</form>
+			</div>
+		</div>
+		{% endfor %}
+		{% endblock %}s
