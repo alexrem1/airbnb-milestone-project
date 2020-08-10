@@ -1,6 +1,6 @@
 AirBnB Listings App
-## [Demo Here](https://datacentricairbnb.herokuapp.com/)
-My 'AirBnB Listings' is a app wholly built up from the up with Flask, MongoDB and Python. It'll be a display of a mix of technology I have been taught so far from the course. My app will showcase how a cross-platform document-oriented database and an elite level programming language, Python](https://www.python.org/), can be manipulated to create creative and simple apps for the web.
+## [Demo Here](https://airbnbmilestoneproject.herokuapp.com/)
+My 'AirBnB Listings' is a app wholly built up from the up with Flask, MongoDB and Python. It'll be a display of a mix of technology I have been taught so far from the course. My app will showcase how a cross-platform document-oriented database and an elite level programming language, [Python](https://www.python.org/), can be manipulated to create creative and simple apps for the web.
 
 ---
 ## UX
@@ -26,11 +26,17 @@ Reasons why Airbnb Listing was created.
 ---
 ## Airbnb Features
 I have used various Materialize features such as carousel. This is used with the intention of giving airbnb listing pages an attractive carousel of photos related to their airbnb. 
+
 The pickadate features allows users that add listings to choose a date they were verified by Airbnb that gives visitors more details about that user.
+
 The select feature gives users of the site predetermined options on, for example, amenities that their airbnb may or may not have. Aswell as bed size options their airbnb provides.
+
 Another feature which compliments a sleek and simple navigation is navbar. As well as a desktop navbar version, when on mobile this navbar now pops out from the side when clicked upon.
+
 Tap Target feature allows a user to click on the target and see a pop up of useful information in a fun and interative way. 
+
 The form feature allows users to not only add a complex airbnb listing to the database but it also allows anyone to leave a review of any listed airbnb.  
+
 Another feature my website possesesses can register and log in users, this feature allows me to create user restrictions and view restrictions this enables me to add extra levels of security where needed to protect my database or user data.
 
 ### Features Left to Implement
@@ -57,6 +63,7 @@ Most of the applications testing was done throughout the entirety of development
 debug=True
 ```
 So if Flask ever encounters an error the application shows it and indicates what caused it to crash. It was therefore imperative for time constraints and ease of use to test my application for every piece of work I would complete. Each time an error occured I would become more familiar with the error and how to fix it, ultimately speeding up the accuracy of my work and reduction of errors.
+
 ---
 
 **Testing Python** - Again, writing Python would be done in bursts and if it didn't show in the browser, I would know I had done something wrong. 
@@ -173,8 +180,8 @@ To get set up with a copy of my project you can do these multiple ways.
 3. You will need to update a few environment variables before we can run the app.
 	1. `app.config["MONGO_DBNAME"] =  "airbnb_revieww"`
 	2. `app.config["MONGO_URI"] = os.getenv("MONGO_URI", "monogodb://localhost")`
-	3. `app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")`
-4. Once the above steps are complete you can try run the application using `python3 main.py`
+	3. `app.config["SECRET_KEY"] = os.getenv("SECRET")`
+4. Once the above steps are complete you can try run the application using `python3 app.py`
 
 **Via the CLI** -
 1. Clone my repo via Git using the following command `https://github.com/ShaneMuir/Milestone-4.git`
@@ -182,8 +189,8 @@ To get set up with a copy of my project you can do these multiple ways.
 3. You will need to update a few environment variables before we can run the app.
 	1. `app.config["MONGO_DBNAME"] =  "airbnb_revieww"`
 	2. `app.config["MONGO_URI"] = os.getenv("MONGO_URI", "monogodb://localhost")`
-	3. `app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")`
-4. Once the above steps are complete you can try run the application using `python3 main.py`
+	3. `app.config["SECRET_KEY"] = os.getenv("SECRET")`
+4. Once the above steps are complete you can try run the application using `python3 app.py`
 
 ## Credits
 Credit is due to the following names. Thank you so much:
