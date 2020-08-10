@@ -150,5 +150,39 @@ def edit_listing(property_id):
         bedsize=mongo.db.bedsize.find(),
     )
 
+@app.route("/update_listing/<property_id>", methods=["POST"])
+@login_required
+def update_listing(property_id):
+
+    username = session["username"]
+    user = mongo.db.user.find_one({"username": username})
+
+    property = mongo.db.property
+    property.update(
+        {"_id": ObjectId(property_id)},
+        {
+            "name": request.form.get("name"),
+            "typeandhost": request.form.get("typeandhost"),
+            "capacity": request.form.get("capacity"),
+            "summary": request.form.get("summary"),
+            "pricepernight": request.form.get("pricepernight"),
+            "cleaningfee": request.form.get("cleaningfee"),
+            "servicefee": request.form.get("servicefee"),
+            "bedsize": request.form.getlist("bedsize"),
+            "minnights": request.form.get("minnights"),
+            "maxnights": request.form.get("maxnights"),
+            "rules": request.form.get("rules"),
+            "amenities": request.form.getlist("amenities"),
+            "cancellation": request.form.get("cancellation"),
+            "author": request.form.get("author"),                         
+            "datevisited": request.form.get("datevisited"),
+            "things": request.form.get("things"),
+            "user": user["_id"]
+        },
+    )
+    return redirect(url_for("user_listing"))
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
