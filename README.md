@@ -21,7 +21,7 @@ Reasons why Airbnb Listing was created.
 
 ---
 ## Wireframes 
-[Website concept](https://raw.githubusercontent.com/alexrem1/AirBnB-Project/master/static/wireframes/concept.jpg)
+[Website concept](https://raw.githubusercontent.com/alexrem1/airbnb-milestone-project/master/static/wireframes/concept.jpg)
 
 ---
 ## Airbnb Features
