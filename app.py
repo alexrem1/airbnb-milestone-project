@@ -188,5 +188,15 @@ def delete_listing(property_id):
     mongo.db.property.remove({"_id": ObjectId(property_id)})
     return redirect(url_for("user_listing"))
 
+@app.route("/user_listing/")
+@login_required
+def user_listing():
+    username = session["username"]
+    user = mongo.db.user.find_one({"username": username})
+    return render_template(
+        "userlisting.html",
+        property=mongo.db.property.find({"user": user["_id"]})
+    )
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
