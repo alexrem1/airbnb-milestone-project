@@ -29,14 +29,17 @@ def login_required(fn):
 
 @app.route("/")
 @app.route("/choose_us")
+# landing page
 def choose_us():
      return render_template("chooseus.html")
 
 @app.route("/get_property")
+# reading property listings from database
 def get_property():
     return render_template("properties.html", property=mongo.db.property.find())
 
 @app.route("/index")
+# If the user is in session redirect to get_property route
 def index():
     if "username" in session:
         return redirect(url_for("get_property"))
@@ -45,31 +48,36 @@ def index():
 
 
 @app.route("/login", methods=["POST"])
+# I'm looking for a user (where the name = name submitted via registration) so I can compare passwords
 def login():
     users = mongo.db.user
     login_user = users.find_one({"username": request.form["username"]})
 
     if login_user:
+        # I'm comparing the password the user entered and the existing password in the database
         if (
             bcrypt.hashpw(request.form["pass"].encode("utf-8"), login_user["password"])
             == login_user["password"]
         ):
+        # if it exists, I can add the user to the session
             session["username"] = request.form["username"]
             return redirect(url_for("get_property"))
     return render_template("index.html")
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
+    # if it is a post, I want to determine if the username they're requesting already exists in the database 
     if request.method == "POST":
         users = mongo.db.user
         existing_user = users.find_one({"username": request.form["username"]})
         if existing_user is None:
+            # and if it doesn't, they'll be allowed to register
             hashpass = bcrypt.hashpw(
                 request.form["pass"].encode("utf-8"), bcrypt.gensalt()
             )
             users.insert({"username": request.form["username"], "password": hashpass})
             session["username"] = request.form["username"]
-            return redirect(url_for("get_property"))
+            return redirect(url_for("index"))
         return render_template("register.html")
 
     return render_template("register.html")
@@ -80,6 +88,7 @@ def logout():
     return redirect(url_for("choose_us"))
 
 @app.route("/add_listing")
+# logic for users to add listing
 @login_required
 def add_listing():
     return render_template(
@@ -90,6 +99,7 @@ def add_listing():
     )
 
 @app.route("/insert_listing", methods=["POST", "GET"])
+# logic for users, when inserting listing, to be associated with the listing
 @login_required
 def insert_listing():
 
@@ -122,6 +132,7 @@ def insert_listing():
 
 
 @app.route("/view_listing/<property_id>")
+# logic for viewing a property listing as well as reading reviews
 def view_listing(property_id):
     one_property = mongo.db.property.find({"_id": ObjectId(property_id)})
     reviews = mongo.db.reviews.find({"property": ObjectId(property_id)})
@@ -131,6 +142,7 @@ def view_listing(property_id):
     )
 
 @app.route("/insert_review/<property_id>", methods=["POST"])
+# logic for inserted review to be associated with property
 def insert_review(property_id):
     one_property = mongo.db.property.find({"_id": ObjectId(property_id)})
     reviews = mongo.db.reviews
@@ -140,6 +152,7 @@ def insert_review(property_id):
     return redirect(url_for("view_listing", property_id=property_id))
 
 @app.route("/edit_listing/<property_id>")
+# functionality for editing property listings
 @login_required
 def edit_listing(property_id):
     the_property = mongo.db.property.find_one({"_id": ObjectId(property_id)})
@@ -152,6 +165,7 @@ def edit_listing(property_id):
 
 @app.route("/update_listing/<property_id>", methods=["POST"])
 @login_required
+# logic for users, when updating listing, to still be associated with the listing
 def update_listing(property_id):
 
     username = session["username"]
@@ -183,6 +197,7 @@ def update_listing(property_id):
     return redirect(url_for("user_listing"))
 
 @app.route("/delete_listing/<property_id>")
+# delete a listing functionality
 @login_required
 def delete_listing(property_id):
     mongo.db.property.remove({"_id": ObjectId(property_id)})
@@ -190,6 +205,7 @@ def delete_listing(property_id):
 
 @app.route("/user_listing/")
 @login_required
+# logic for user-specific property listings
 def user_listing():
     username = session["username"]
     user = mongo.db.user.find_one({"username": username})
