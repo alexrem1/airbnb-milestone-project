@@ -227,9 +227,7 @@ Credit is due to the following names. Thank you so much:
 
 ### Media
 
-- [cover2](https://unsplash.com/photos/xY4r7y-Cllo)
 - [cover1](https://unsplash.com/photos/y3TWYaUj8Ew)
-- [cover5](https://unsplash.com/photos/_kifxaMv2QY)
 - [1](https://unsplash.com/photos/mt2QzllH814)
 - [2](https://unsplash.com/photos/b87_egH5mos)
 - [3](https://unsplash.com/photos/7450hH--84M)
