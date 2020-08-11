@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>AirCnC</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{ url_for('static', filename='logo/favicon.png') }}"
+    />
+  </head>
 
-<head>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-	<title>AirBnB Reviews You Can Trust!</title>
-	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='logo/favicon.png') }}" />
-</head>
-
-<body>
-	<header>
-		<div class="navbar-fixed">
-			<nav>
-				<div class="nav-wrapper">
-					<a href="{{url_for('choose_us')}}"><img
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="{{url_for('index')}}"
+              ><img
                 src="{{ url_for('static', filename='logo/logo.png') }}"
                 class="logo"
             /></a>
-						<a href="#" data-activates="mobile-demo"
-							class="button-collapse"><i class="material-icons">menu</i></a>
-						<ul class="right hide-on-med-and-down">
-							<li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
-							<li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
-							{%if session['username']%}
-							<li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
-							{% endif %} {% if session['username'] %}
-							<li><a href="{{url_for('user_listing')}}">My Listings</a></li>
-							{% else %} {% endif %} {% if session['username'] %}
-							<li><a href="{{url_for('logout')}}">Logout</a></li>
-							{% else %}
-							<li><a href="{{url_for('index')}}">Login</a></li>
-							{% endif %}
-						</ul>
-				</div>
-			</nav>
-		</div>
-		<ul class="side-nav" id="mobile-demo">
-			<li><a href="{{url_for('choose_us')}}">Why Choose Us?</a></li>
-			<li><a href="{{url_for('get_property')}}">AirBnB Listings</a></li>
-			{%if session['username']%}
-			<li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
-			{% endif %} {% if session['username'] %}
-			<li><a href="{{url_for('user_listing')}}">My Listings</a></li>
-			{% else %} {% endif %} {% if session['username'] %}
-			<li><a href="{{url_for('logout')}}">Logout</a></li>
-			{% else %}
-			<li><a href="{{url_for('index')}}">Login</a></li>
-			{% endif %}
-		</ul>
-	</header>
-	{%block content%} {% endblock %}
+            <a href="#" data-activates="mobile-demo" class="button-collapse"
+              ><i class="material-icons">menu</i></a
+            >
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{{url_for('index')}}">Home</a></li>
+              <li><a href="{{url_for('get_property')}}">AirCnC Listings</a></li>
+              {%if session['username']%}
+              <li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
+              {% endif %} {% if session['username'] %}
+              <li><a href="{{url_for('user_listing')}}">My Listings</a></li>
+              {% else %} {% endif %} {% if session['username'] %}
+              <li><a href="{{url_for('logout')}}">Logout</a></li>
+              {% else %}
+              <li><a href="{{url_for('aut')}}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('get_property')}}">AirCnC Listings</a></li>
+        {%if session['username']%}
+        <li><a href="{{url_for('add_listing')}}">Add Listing</a></li>
+        {% endif %} {% if session['username'] %}
+        <li><a href="{{url_for('user_listing')}}">My Listings</a></li>
+        {% else %} {% endif %} {% if session['username'] %}
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        {% else %}
+        <li><a href="{{url_for('aut')}}">Login</a></li>
+        {% endif %}
+      </ul>
+    </header>
+    {%block content%} {% endblock %}
 
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
         $(".carousel").carousel();
         $(".pickadate").pickadate();
         $("select").material_select();
@@ -64,7 +78,6 @@
       document.getElementById("matfix").addEventListener("click", function (e) {
         e.stopPropagation();
       });
-	</script>
-</body>
-
+    </script>
+  </body>
 </html>

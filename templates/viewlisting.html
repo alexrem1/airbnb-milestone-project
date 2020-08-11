@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-	{% for airbnb in property %}
+	{% for aircnc in property %}
 	<u>
-		<h4 class="center-align">{{airbnb.name}}</h4>
+		<h4 class="center-align">{{aircnc.name}}</h4>
 	</u>
 	<br>
 	<div class="carousel" style="height:300px">
@@ -20,12 +20,12 @@
 		<div class="col s12 m12">
 			<div class="card white">
 				<div class="card-content black-text">
-					{{airbnb.typeandhost}} <br /><br />
-     Capacity: {{airbnb.capacity}} <br /><br />
-      {{airbnb.summary}} <br /><br />
-      Bed size(s): {{airbnb.bedsize|join(', ')}} <br><br>
-      Minimum stay {{airbnb.minnights}} - {{airbnb.maxnights}} Maximum stay <br><br>
-      Amenities: {{airbnb.amenities|join(', ')}} <br><br>
+					{{aircnc.typeandhost}} <br /><br />
+     Capacity: {{aircnc.capacity}} <br /><br />
+      {{aircnc.summary}} <br /><br />
+      Bed size(s): {{aircnc.bedsize|join(', ')}} <br><br>
+      Minimum stay {{aircnc.minnights}} - {{aircnc.maxnights}} Maximum stay <br><br>
+      Amenities: {{aircnc.amenities|join(', ')}} <br><br>
   </div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 		<div class="divider"></div>
 
 		<div>
-			<em><h4 class="center-align">Price per night {{airbnb.pricepernight}} - Cleaning fees {{airbnb.cleaningfee}} - Service fees {{airbnb.servicefee}}</h4></em>
+			<em><h4 class="center-align">Price per night {{aircnc.pricepernight}} - Cleaning fees {{aircnc.cleaningfee}} - Service fees {{aircnc.servicefee}}</h4></em>
 		</div>
 
 		<div class="divider"></div>
@@ -48,7 +48,7 @@
 					<div class="card-content black-text">
 						<em><h4 class="center-align">House Rules</h4></em>
 						<br>
-						<p>{{airbnb.rules}}</p>
+						<p>{{aircnc.rules}}</p>
 					</div>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 					<div class="card-content black-text">
 						<em><h4 class="center-align">Cancellation Policy</h4></em>
 						<br>
-						<p>{{airbnb.cancellation}}</p>
+						<p>{{aircnc.cancellation}}</p>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 					<div class="card-content black-text">
 						<em><h4>Things you should know</h4></em>
 						<br>
-						<p>{{airbnb.things}}</p>
+						<p>{{aircnc.things}}</p>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 		<br>
 		<div class="row">
 			<div class="input-field col s12 offset-s3">
-				<h5>Author: {{airbnb.author}} <br> Verified AirBnB user since {{airbnb.datevisited}}</h5>
+				<h5>Author: {{aircnc.author}} <br> Verified AirCnC user since {{aircnc.datevisited}}</h5>
 			</div>
 		</div>
 		<br>
@@ -102,7 +102,7 @@
 								<br>
 								<br>
 {% for r in reviews %}
-								<p class="center-align">{{r.name}}: {{r.review}}</p>
+								<p class="center-align"><b>{{r.name}}</b>: {{r.review}}</p>
 								<br>
 								<br>
 {% endfor %}
@@ -119,7 +119,7 @@
 			<br>
 			<br>
 			<div class="row">
-				<form action="{{url_for('insert_review', property_id=airbnb._id)}}" method="POST" class="col s12">
+				<form action="{{url_for('insert_review', property_id=aircnc._id)}}" method="POST" class="col s12">
 					<h6>If you have time, please leave a review.</h6>
 					<br>
 					<div class="row">

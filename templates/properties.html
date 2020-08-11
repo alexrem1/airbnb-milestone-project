@@ -1,26 +1,28 @@
 {% extends 'base.html' %} {% block content %}
-<div class="parallax"><img style="width: 100%;" src={{ url_for('static', filename='propertyphotos/cover1.jpg') }}></div>
-	<div class="container">
-		{% if session['username'] %}
-		<h6 class="center-align">Welcome, {{ session['username'] }}!</h6>
-		{% endif %}
-		<br>
-		<br>
-		<u>
-			<h4 class="center-align">AirBnB Listings</h4>
-		</u>
-		<br>
-		<br>
-  {% for airbnb in property %}
-		<h4 class="center-align" style="margin-top: 40px;"><a style="color:black;"
-				href="{{url_for('view_listing', property_id=airbnb._id)}}">{{airbnb.name}}</a></h4>
-		<br>
-		<br>
-		<div class="divider"></div>
-		<div class="divider"></div>
-		<div class="divider"></div>
-		{% endfor %}
-	</div>
-	<div class="parallax">
-		<img style="width: 100%;" src={{ url_for('static', filename='propertyphotos/cover5.jpg') }}></div>
-		{% endblock %}
+<div class="container">
+  {% if session['username'] %}
+  <h6 class="center-align"><b>Welcome, {{ session['username'] }}!</b></h6>
+  {% endif %}
+  <br />
+  <br />
+  <u>
+    <h4 class="center-align">AirCnC Listings</h4>
+  </u>
+  <br />
+  <br />
+  {% for aircnc in property %}
+  <h4 class="center-align" style="margin-top: 40px;">
+    <a
+      style="color: black;"
+      href="{{url_for('view_listing', property_id=aircnc._id)}}"
+      >{{aircnc.name}}</a
+    >
+  </h4>
+  <br />
+  <br />
+  <div class="divider"></div>
+  <div class="divider"></div>
+  <div class="divider"></div>
+  {% endfor %}
+</div>
+{% endblock %}

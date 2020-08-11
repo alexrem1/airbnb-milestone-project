@@ -1,30 +1,32 @@
-AirBnB Listings App
+AirCnC Listings App
 
 ## [Demo Here](https://airbnbmilestoneproject.herokuapp.com/)
 
-My 'AirBnB Listings' is a app wholly built up from the up with Flask, MongoDB and Python. It'll be a display of a mix of technology I have been taught so far from the course. My app will showcase how a cross-platform document-oriented database and an elite level programming language, [Python](https://www.python.org/), can be manipulated to create creative and simple apps for the web.
+My 'AirCnC Listings' is a app wholly built up from the up with Flask, MongoDB and Python. It'll be a display of a mix of technology I have been taught so far from the course. My app will showcase how a cross-platform document-oriented database and an elite level programming language, [Python](https://www.python.org/), can be manipulated to create creative and simple apps for the web.
+
+Why choose us?>>
 
 ---
 
 ## UX
 
-My idea stemmed upon users being able to create and store Airbnb listings efficiently.
-My app is designed to allow would be visotors to create a user specific profile, therefore, user data is protected by user restrictions where only the user could edit or delete it from the database. From there users can create, store, manage and delete airbnb listings. Any visiter to the app may also leave a review if they have been to that specific airbnb.
-With an application, users want quick responsive menus that make sense and one that has been included was a "My Listing" section to manage their stored airbnb listings. Airbnb's in general have many variables attached to it and if a registered user needs to update one of varibales associated with their listing, my app allows them to do so.
+My idea stemmed upon users being able to create and store Aircnc listings efficiently.
+My app is designed to allow would be visotors to create a user specific profile, therefore, user data is protected by user restrictions where only the user could edit or delete it from the database. From there users can create, store, manage and delete aircnc listings. Any visiter to the app may also leave a review if they have been to that specific aircnc.
+With an application, users want quick responsive menus that make sense and one that has been included was a "My Listing" section to manage their stored aircnc listings. Aircnc's in general have many variables attached to it and if a registered user needs to update one of varibales associated with their listing, my app allows them to do so.
 
 ---
 
 ## User Stories
 
-Reasons why Airbnb Listing was created.
+Reasons why Aircnc Listing was created.
 
-> As a user I need a place where I can create and store airbnb listings.
+> As a user I need a place where I can create and store aircnc listings.
 
-> There are lots of airbnb magazines with listings in there but it's not easy to get my listings in there as it takes time and it's costly.
+> There are lots of aircnc magazines with listings in there but it's not easy to get my listings in there as it takes time and it's costly.
 
-> There are many airbnb host sites, however they come with x amount of fees for storing, why can't I store my airbnb listings for free.
+> There are many aircnc host sites, however they come with x amount of fees for storing, why can't I store my aircnc listings for free.
 
-> I need an app where I can easily list any airbnb that I own and be able to access them at a moments notice to update or delete them.
+> I need an app where I can easily list any aircnc that I own and be able to access them at a moments notice to update or delete them.
 
 ---
 
@@ -34,26 +36,26 @@ Reasons why Airbnb Listing was created.
 
 ---
 
-## Airbnb Features
+## Aircnc Features
 
-I have used various Materialize features such as carousel. This is used with the intention of giving airbnb listing pages an attractive carousel of photos related to their airbnb.
+I have used various Materialize features such as carousel. This is used with the intention of giving aircnc listing pages an attractive carousel of photos related to their aircnc.
 
-The pickadate features allows users that add listings to choose a date they were verified by Airbnb that gives visitors more details about that user.
+The pickadate features allows users that add listings to choose a date they were verified by Aircnc that gives visitors more details about that user.
 
-The select feature gives users of the site predetermined options on, for example, amenities that their airbnb may or may not have. Aswell as bed size options their airbnb provides.
+The select feature gives users of the site predetermined options on, for example, amenities that their aircnc may or may not have. Aswell as bed size options their aircnc provides.
 
 Another feature which compliments a sleek and simple navigation is navbar. As well as a desktop navbar version, when on mobile this navbar now pops out from the side when clicked upon.
 
 Tap Target feature allows a user to click on the target and see a pop up of useful information in a fun and interative way.
 
-The form feature allows users to not only add a complex airbnb listing to the database but it also allows anyone to leave a review of any listed airbnb.
+The form feature allows users to not only add a complex aircnc listing to the database but it also allows anyone to leave a review of any listed aircnc.
 
 Another feature my website possesesses can register and log in users, this feature allows me to create user restrictions and view restrictions this enables me to add extra levels of security where needed to protect my database or user data.
 
 ### Features Left to Implement
 
-- Search bar feature to search specifically for airbnb property, as well as, airbnb's created by a specific user
-- Upload picture(s) of airbnb on 'add listing' section instead of generic photos
+- Search bar feature to search specifically for aircnc property, as well as, aircnc's created by a specific user
+- Upload picture(s) of aircnc on 'add listing' section instead of generic photos
 
 ---
 
@@ -105,17 +107,17 @@ Once this had been put into practice, devoloping the needed requirement (CRUD) w
 **Testing CRUD**
 
 **READ**
-The most important thing was making sure that users could see the airbnb listings that I initially created in MongoDB. To do this I had created a home route and loaded the property collection within this route then passed the data to the view. I tested this manually on the front-end and this worked as intended which allowed me to move on.
+The most important thing was making sure that users could see the aircnc listings that I initially created in MongoDB. To do this I had created a home route and loaded the property collection within this route then passed the data to the view. I tested this manually on the front-end and this worked as intended which allowed me to move on.
 
 **UPDATE**
-Now my website is reading my property collection from MongoDB, I moved onto being able to edit and update these airbnb's. At first I initially created a edit_listing route which meant that anyone could edit and update an airbnb listing which worked as intended on the fron-end and MongoDB.
-Then I decided to make a change to my website design which only allowed users who had created their own airbnb listing to edit and update it. I had to update my insert_listing to allow logged in users to be associated with the inserted airbnb listing aswell as update_listing route to make sure once a user edit and updates their listing, they don't then become unassociated. I tested by updating an already associated property and manually checking MongoDB to see that it was still associated. This important fuctionality is needed to show another route: user_listing which is user specific airbnb listings.
+Now my website is reading my property collection from MongoDB, I moved onto being able to edit and update these aircnc's. At first I initially created a edit_listing route which meant that anyone could edit and update an aircnc listing which worked as intended on the fron-end and MongoDB.
+Then I decided to make a change to my website design which only allowed users who had created their own aircnc listing to edit and update it. I had to update my insert_listing to allow logged in users to be associated with the inserted aircnc listing aswell as update_listing route to make sure once a user edit and updates their listing, they don't then become unassociated. I tested by updating an already associated property and manually checking MongoDB to see that it was still associated. This important fuctionality is needed to show another route: user_listing which is user specific aircnc listings.
 
 **DELETE**
-A delete_listing route was created which would delete the associated airbnb property from the database. I tested this in the browser and after deleting the airbnb property, it would then redirect back to user_listing.
+A delete_listing route was created which would delete the associated aircnc property from the database. I tested this in the browser and after deleting the aircnc property, it would then redirect back to user_listing.
 
 **CREATE**
-Testing the create functionality involved countless airbnb form submissions to which would in turn test the route when creating a new airbnb listing and did work as intended.
+Testing the create functionality involved countless aircnc form submissions to which would in turn test the route when creating a new aircnc listing and did work as intended.
 
 After working out a bug that occured when adding user authentication to insert_listing, the test phase was completed
 
