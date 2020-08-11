@@ -4,8 +4,6 @@ AirCnC Listings App
 
 My 'AirCnC Listings' is a app wholly built up from the up with Flask, MongoDB and Python. It'll be a display of a mix of technology I have been taught so far from the course. My app will showcase how a cross-platform document-oriented database and an elite level programming language, [Python](https://www.python.org/), can be manipulated to create creative and simple apps for the web.
 
-Why choose us?>>
-
 ---
 
 ## UX
